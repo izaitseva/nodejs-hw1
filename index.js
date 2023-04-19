@@ -2,22 +2,22 @@ const contacts = require('./contacts.js')
 
 const invokeAction = async ({ action, id, name, email, phone }) => {
     switch (action) {
-        case 'getAll':
+        case 'list':
             const allContacts = await contacts.listContacts();
             console.log(allContacts);
             break;
 
-        case 'getOneById':
+        case 'get':
             const contact = await contacts.getContactById(id);
             console.log(contact);
             break;
 
-        case 'addContact':
+        case 'add':
             const newContact = await contacts.addContact(name, email, phone);
             console.log(newContact);
             break;
 
-        case 'removeContact':
+        case 'remove':
             const removeContact = await contacts.removeContact(id);
             console.log(removeContact);
             break;
@@ -27,7 +27,7 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
     }
 }
 
-// invokeAction({action: 'getAll'})
-// invokeAction({ action: 'getOneById', id: '05olLMgyVQdWRwgKfg5J6' })
-// invokeAction({ action: 'addContact', name: 'ira', email: 'dkj@kjhb.com', phone: '846534567886' })
-invokeAction({ action: 'removeContact', id: 'Hi8TnByfs2Hx0qWREW_JQ' })
+// invokeAction({action: 'list'})
+// invokeAction({ action: 'get', id: '05olLMgyVQdWRwgKfg5J6' })
+// invokeAction({ action: 'add', name: 'ira', email: 'dkj@kjhb.com', phone: '846534567886' })
+invokeAction({ action: 'remove', id: '4bO0NqOsJ9edO2L7JjWAj' })

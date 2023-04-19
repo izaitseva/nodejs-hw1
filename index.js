@@ -17,6 +17,11 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
             console.log(newContact);
             break;
 
+        case 'removeContact':
+            const removeContact = await contacts.removeContact(id);
+            console.log(removeContact);
+            break;
+
         default:
             break;
     }
@@ -24,4 +29,5 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
 
 // invokeAction({action: 'getAll'})
 // invokeAction({ action: 'getOneById', id: '05olLMgyVQdWRwgKfg5J6' })
-invokeAction({action: 'addContact', name: 'ira', email: 'dkj@kjhb.com', phone: '846534567886'})
+// invokeAction({ action: 'addContact', name: 'ira', email: 'dkj@kjhb.com', phone: '846534567886' })
+invokeAction({ action: 'removeContact', id: 'Hi8TnByfs2Hx0qWREW_JQ' })

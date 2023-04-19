@@ -1,30 +1,36 @@
 const fs = require('fs/promises');
 const path = require('path');
-const contactsPath = path.resolve(__dirname, './db/contacts.json')
+const contactsPath = path.join(__dirname, '/db/contacts.json')
 
-async function readContacts() {
-    const contacts = await fs.readFile(contactsPath, 'utf-8')
-    console.log(contacts);
+// async function readContacts() {
+//     const contacts = await fs.readFile(contactsPath, 'utf-8')
+//     console.log(contacts);
+// }
+
+// module.exports = {
+//     readContacts,
+// }
+
+async function listContacts() {
+  const contacts = await fs.readFile(contactsPath, 'utf-8')
+  return JSON.parse(contacts)
+}
+
+async function getContactById(contactId) {
+  // ...твій код
+}
+
+async function removeContact(contactId) {
+  // ...твій код
+}
+
+async function addContact(name, email, phone) {
+  // ...твій код
 }
 
 module.exports = {
-    readContacts,
-}
-
-
-// TODO: задокументувати кожну функцію
-function listContacts() {
-  // ...твій код
-}
-
-function getContactById(contactId) {
-  // ...твій код
-}
-
-function removeContact(contactId) {
-  // ...твій код
-}
-
-function addContact(name, email, phone) {
-  // ...твій код
+    listContacts,
+    getContactById,
+    removeContact,
+    addContact
 }
